@@ -27,7 +27,7 @@ int dequeue(){
     if(front==-1 && rear==-1){
         printf("Underflow!!!!!");
     }
-    if(front==rear  ){
+    if(front==rear){
 
         ele = queue[front];
         front=-1;
@@ -50,34 +50,34 @@ void show(){
 
     // FIRST APPROACH
 
-    if(front==-1){
-        printf("Stack is empty");
-    }
-    // printf("\n");
-    else{
-        if (rear >= front){
-        for (int i = front; i <= rear; i++)
-            printf("%d \t",queue[i]);
-    }
-        else{
-        for (int i = front; i < size; i = i++)
-            printf("%d \t", queue[i]);
+    // if(front==-1){
+    //     printf("Stack is empty");
+    // }
+    // // printf("\n");
+    // else{
+    //     if (rear >= front){
+    //     for (int i = front; i <= rear; i++)
+    //         printf("%d \t",queue[i]);
+    // }
+    //     else{
+    //     for (int i = front; i < size; i = i++)
+    //         printf("%d \t", queue[i]);
  
-        for (int i = 0; i <= rear; i++)
-            printf("%d ", queue[i]);
-        }
-    }
+    //     for (int i = 0; i <= rear; i++)
+    //         printf("%d ", queue[i]);
+    //     }
+    // }
 
 
     // SECONF APPROACH
 
-    // int i = front;
-    // while(i!=rear){
-    //     printf("%d\t",queue[i]);
-    //     i = (i+1)%size;
-    // }
-    // printf("%d\t",queue[rear]);
-    // printf("\n");
+    int i = front;
+    while(i!=rear){
+        printf("%d\t",queue[i]);
+        i = (i+1)%size;
+    }
+    printf("%d\t",queue[rear]);
+    printf("\n");
 
 }
 
