@@ -18,7 +18,7 @@ node* createNode(int new_data) {
     return newnode;
 }
 
-void insertNodeFromHead(node **head, int data_) {
+void insertNodeFromBeg(node **head, int data_) {
     node* newnode = createNode(data_);
     newnode->next = *head;
     *head = newnode;   
@@ -108,7 +108,7 @@ void deleteNodeSP(node** head ,int pos){
 }
 
 void push_at_beginning(node **stack, int data) {
-    insertNodeFromHead(stack, data);
+    insertNodeFromBeg(stack, data);
 }
 
 void push_at_end(node **stack, int data) {
