@@ -151,8 +151,8 @@ void peek(node *stack) {
 
 int main() {
     node *head = NULL;
-    insertNodeFromHead(&head, 10);
-    insertNodeFromHead(&head, 20);
+    insertNodeFromBeg(&head, 10);
+    insertNodeFromBeg(&head, 20);
     insertNodeFromEnd(&head, 30);
     insertNodeFromEnd(&head, 40);
     insertNodeATSpecificPos(&head, 25, 2);

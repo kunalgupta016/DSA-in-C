@@ -85,7 +85,7 @@ int main(){
                 dikhao();
                 break;
             case 4:
-                printf("Thank you for your visit!\n");
+                printf("Thank you for your visit!😊\n");
                 exit(0);
             default:
                 printf("Enter valid choice!!\n");
