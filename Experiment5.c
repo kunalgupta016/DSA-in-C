@@ -56,14 +56,55 @@ void insertNodeATSpecificPos(node **head, int data_, int pos) {
     temp->next = newnode;
 }
 
-void deleteNode(node** head) {
+void deleteNodeB(node** head) {
     if (*head == NULL) {
         printf("Stack is empty\n");
         return;
     }
-    node* temp = *head;
+    node* del = *head;
     *head = (*head)->next;
-    free(temp);
+    free(del);
+}
+
+void deleteNodeE(node** head){
+    node* del;
+    node* temp;
+    del = *head;
+    if(del->next==NULL){
+        free(head);
+        head = NULL;
+    }
+    else{
+        del = *head;
+        while(del->next!=NULL){
+            temp = del;
+            del = del->next;
+        }
+        temp->next = NULL;
+        free(del);
+    }
+}
+
+void deleteNodeSP(node** head ,int pos){
+    node* del;
+    node* temp;
+    if(pos==0){
+        printf("List is empty");
+    }
+    else{
+        del = *head;
+        for(int i=0;i<pos-1;i++){
+            temp = del;
+            del = del->next;
+            if(del==NULL){
+                printf("Invalid position");
+                break;
+           }
+
+        }
+        temp->next = NULL;
+        free(del);
+    }
 }
 
 void push_at_beginning(node **stack, int data) {
@@ -78,17 +119,22 @@ void push_at_position(node **stack, int data, int pos) {
     insertNodeATSpecificPos(stack, data, pos);
 }
 
-void pop(node **stack) {
-    if (*stack == NULL) {
-        printf("Underflow\n");
-        return;
-    }
-    deleteNode(stack);
+void pop_from_Begining(node **stack) {
+    deleteNodeB(stack);
 }
+
+void pop_from_End(node **stack) {
+    deleteNodeE(stack);
+}
+
+void pop_from_Specific_position(node **stack,int pos) {
+    deleteNodeSP(stack,pos);
+}
+
 
 void printStack(node *stack) {
     node *x = stack;
-    while (x != NULL) {
+    while (x != NULL){
         printf("%d\t", x->data);
         x = x->next;
     }
@@ -108,13 +154,17 @@ int main() {
     insertNodeFromHead(&head, 10);
     insertNodeFromHead(&head, 20);
     insertNodeFromEnd(&head, 30);
+    insertNodeFromEnd(&head, 40);
     insertNodeATSpecificPos(&head, 25, 2);
 
     printStack(head);
     
     peek(head);
     
-    pop(&head);
+    pop_from_Begining(&head);
+    pop_from_End(&head);
+    pop_from_Specific_position(&head,3);
+
     printStack(head);
 
     return 0;
