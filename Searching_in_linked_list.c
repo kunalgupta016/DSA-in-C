@@ -38,7 +38,7 @@ int searchdata(node** head,int val){
         }
     }
 
-    printf("value nahi hai isme");
+    printf("value nahi hai isme 😞");
 }
 
 int main(){

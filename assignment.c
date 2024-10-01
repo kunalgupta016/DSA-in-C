@@ -38,7 +38,7 @@ int cycle(node* head){
             if(slow==fast){
                 return 1;
             }
-        }
+                }
         return 0;
     }
 }

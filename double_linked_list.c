@@ -20,6 +20,13 @@ node* createNode(int data){
     }
 }
 
+void circularLL(node** head){
+    node* temp = *head ;
+    while(temp->next!=NULL){
+        temp = temp->next ;
+    }  
+    temp->next = *head;
+}
 void insertB(node** head , int data){
     node* newnode = createNode(data);
     // if(head == NULL){
@@ -28,14 +35,12 @@ void insertB(node** head , int data){
     //     newnode->next = NULL;
     //     *head = newnode;
     // }
-    
         newnode->pre = NULL;
         newnode->next = *head;
         *head = newnode;
     
 
 }
-
 void insertE(node** head , int data){
     node* newnode = createNode(data);
     if(*head==NULL){
@@ -79,6 +84,43 @@ void insertSp(node** head , int data , int pos){
     }
 }
 
+void deleteB(node** head){
+    if(*head==NULL){
+        printf("Yha sab sukha pada hai re😅");
+        return ;
+    }
+    else{
+        node* del = *head;
+        *head = (*head)->next;
+        (*head)->pre = NULL;
+    }
+}
+
+void deleteSP(node**head , int pos){
+    node* del = *head;
+    node* temp;
+    
+    if(pos==0){
+        printf("Yha sab sukha pada hai re 😅\n");
+    }
+    if(pos==1){
+        deleteB(head);
+    }
+    else{
+        for(int i=0;i<pos-1;i++){
+            temp = del;
+            del = del->next;
+            if(del==NULL){
+                printf("Bhai glt hai position!");
+                break;
+            }
+        }
+        temp->next = del->next;
+        del->next = NULL;
+        free(del);
+        
+    }
+}
 
 void print(node *s){
     node* x=s;
@@ -97,6 +139,10 @@ int main(){
     insertE(&head,30);
     insertE(&head,40);
     insertSp(&head,25,3);
+    // circularLL(&head);
     print(head);
-
+    deleteB(&head);
+    print(head);
+    deleteSP(&head,4);
+    print(head);
 }

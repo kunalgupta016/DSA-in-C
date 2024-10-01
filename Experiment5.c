@@ -162,7 +162,7 @@ int main() {
     peek(head);
     
     pop_from_Begining(&head);
-    pop_from_End(&head);
+    // pop_from_End(&head);
     pop_from_Specific_position(&head,3);
 
     printStack(head);
